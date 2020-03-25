@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>在Maven中央仓库留个印记：mws-java-client 1.0</title>
+    <title>在Maven中央仓库留个印记</title>
     <url>/First-Deploy-to-Maven-Central-MWS-Java-Client/</url>
     <content><![CDATA[<p>亚马逊的MWS Java API发布了N久，却始终不入驻Maven中央仓库，SellerCentral论坛上<a href="https://sellercentral.amazon.com/forums/t/maven-repository-for-mws-jars/216603" target="_blank" rel="noopener">民怨</a>时有起伏，官府却始终不动如山。那么，就WHY ALWAYS ME吧😅顺便小记到此一游的关键点，权作备忘。当然，如果只想内部使用，那么还是上马<a href="https://www.sonatype.com/product-nexus-repository" target="_blank" rel="noopener">Nexus</a>吧。</p>
 <p><img src="https://www.dropbox.com/s/opblfhxr645b0gl/maven-central-tour.png?dl=1" alt=""><a id="more"></a></p>
