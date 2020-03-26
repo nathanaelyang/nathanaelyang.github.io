@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.oldyoungboy.com/First-Deploy-to-Maven-Central-MWS-Java-Client/</loc>
+    
+    <lastmod>2020-03-26T16:26:22.233Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.oldyoungboy.com/Do-you-want-to-get-well/</loc>
     
     <lastmod>2020-03-25T22:46:48.749Z</lastmod>
@@ -61,13 +68,6 @@
     <loc>https://www.oldyoungboy.com/about/index.html</loc>
     
     <lastmod>2020-03-25T22:46:48.734Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.oldyoungboy.com/First-Deploy-to-Maven-Central-MWS-Java-Client/</loc>
-    
-    <lastmod>2020-03-25T22:45:18.788Z</lastmod>
     
   </url>
   

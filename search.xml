@@ -19,14 +19,14 @@
 <li><p>发布公钥这一步，按网传的，同时推到Ubuntu之后才好使：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gpg --keyserver hkp://pool.sks-keyservers.net --send-keys $&#123;your.public.key&#125;</span><br><span class="line">gpg --keyserver keyserver.ubuntu.com --send-keys $&#123;your.public.key&#125;</span><br></pre></td></tr></table></figure>
 
-<p>验证，随便找个GCE或AWS的Ubuntu Server确认一下：</p>
+<p>验证，随便找个GCE或AWS的Ubuntu Server确认一下，当然，WSL也OK：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys $&#123;your.public.key&#125;</span><br><span class="line">gpg --keyserver keyserver.ubuntu.com --recv-keys $&#123;your.public.key&#125;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
 <h3 id="发布、等待"><a href="#发布、等待" class="headerlink" title="发布、等待"></a>发布、等待</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mvn clean deploy</span><br></pre></td></tr></table></figure>
 
-<p>发布，然后等待。Repositories中会很快看到，但是要在Maven中央仓库中出现，耐心等等，一觉醒来，大概会好吧。</p>
+<p>发布，然后等待。Repositories中会很快看到，但是要在Maven中央仓库中出现，得耐心等等。一觉醒来，大概会好吧。</p>
 <h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p><a href="https://github.com/ny83427/mws-java-client" target="_blank" rel="noopener">mws-java-client</a>仅仅只是把亚马逊提供的<a href="https://images-na.ssl-images-amazon.com/images/G/01/mwsportal/clientlib/feeds/amazon-mws-v20090101-java-2016-09-21.zip" target="_blank" rel="noopener">老式压缩包文件</a>以方便Maven的方式做了重组，所有代码版权均属亚马逊，老杨无份无关。其中部分依赖库的版本有微调，GitHub Bot检测到http-client-4.2.6有已知安全问题并自动提了PR，老杨自是从善如流，升为4.3.6。其他依赖，均尽可能按照压缩包中给出的版本信息设置。测试下来的结果，一切都还好。</p>
 <p>好了，那么现在要使用MWS Service，这样就好：</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.ny83427<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mws-java-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -34,7 +34,7 @@
 <p>或是这样：</p>
 <figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="keyword">group</span>: <span class="string">'com.github.ny83427'</span>, name: <span class="string">'mws-java-client'</span>, version: <span class="string">'1.0'</span></span><br></pre></td></tr></table></figure>
 
-<p>MWS还有其他一大票诸如<code>Orders</code>、<code>Products</code>等等API，这些已经有其他票友推到中央仓库，我就不重复折腾了。</p>
+<p>MWS还有其他一大票诸如<code>Orders</code>、<code>Products</code>等等API，这些已经有其他票友推到中央仓库，老杨我就不重复折腾了。</p>
 ]]></content>
       <categories>
         <category>代码第三</category>
