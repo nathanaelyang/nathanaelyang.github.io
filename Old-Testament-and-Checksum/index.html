@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://www.oldyoungboy.com/img/Tomb_of_david.jpg">
 <meta property="og:image" content="https://www.oldyoungboy.com/img/jewish-bible.png">
 <meta property="article:published_time" content="2020-03-29T18:42:49.000Z">
-<meta property="article:modified_time" content="2020-03-30T04:29:55.257Z">
+<meta property="article:modified_time" content="2020-03-30T15:58:20.341Z">
 <meta property="article:author" content="老杨">
 <meta property="article:tag" content="吴军">
 <meta property="article:tag" content="数学之美">
@@ -251,10 +251,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-03-29 11:42:49 / 修改时间：21:29:55" itemprop="dateCreated datePublished" datetime="2020-03-29T11:42:49-07:00">2020-03-29</time>
+              <time title="创建时间：2020-03-29 11:42:49" itemprop="dateCreated datePublished" datetime="2020-03-29T11:42:49-07:00">2020-03-29</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-30 08:58:20" itemprop="dateModified" datetime="2020-03-30T08:58:20-07:00">2020-03-30</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -296,7 +302,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4k</span>
+              <span>4.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -324,10 +330,10 @@
 <p>“虽然做事认真的犹太人要求在抄写《圣经》时，要虔诚并且打起十二分精神，尤其是每写到”上帝“（God和Lord）这个词时要去洗手祈祷，不过抄写错误还是难以避免。于是犹太人发明了一种类似于我们今天计算机和通信中校验码的方法。他们把每一个希伯来字母对应于一个数字，这样每行文字加起来便得到一个特殊的数字，这个数字便成为了这一行的校验码。同样，对于每一列也是这样处理。当犹太学者抄完一页《圣经》时，他们需要把每一行的文字加起来，看看新的校验码是否和原文的相同，然后对每一页进行同样的处理。如果这一页每一行和每一列的校验码和原文完全相同，说明这一页的抄写无误。如果某行的校验码和原文中的对应不上，则说明这一行至少有一个抄写错误。当然，错误对应列的校验码也一定和原文对不上，这样可以很快找到出错的地方。这背后的原理和我们今天的各种校验是相同的。”</p>
 </blockquote>
 <p>第一次读到这段时，颇有点大开眼界的感觉，对想到这方法的犹太教文士，不能不佩服得五体投地，心想他们要在今天这时代搞IT，会不会是“拳打Google、脚踢Facebook”般的存在？😅</p>
-<p>对我等普罗大众，希伯来文实在和蝌蚪文没什么太大区别，具体每个希伯来字母对应哪个数字，也只能在<a href="https://en.wikipedia.org/wiki/Hebrew_numerals" target="_blank" rel="noopener">维基百科</a>中睁大牛眼、尝试查上一查了。以大卫王的名字为例，希伯来语是<code>דָּוִד‎</code>，按如下的转码表：</p>
+<p>对我等普罗大众，希伯来文实在和蝌蚪文没什么太大区别，具体每个希伯来字母对应哪个数字，也只能在<a href="https://en.wikipedia.org/wiki/Hebrew_numerals" target="_blank" rel="noopener">维基百科</a>中睁大牛眼、尝试查上一查了。以大卫王的名字为例，希伯来语是<code>דוד</code>，按如下的转码表：</p>
 <p><img src="/img/gematria-chart.jpg" alt=""></p>
 <p>其发音为<code>d</code>、<code>w</code>和<code>d</code>，串联起来，自然而然地就可以想见其英文翻译为何会是<code>David</code>了。</p>
-<p>其数字之和，则是4 + 6 + 4 = 14。这个<strong>十四</strong>，和马太福音一章的“…共有<strong>十四</strong>代…也有<strong>十四</strong>代…又有<strong>十四</strong>代”，会有什么关系吗？😐</p>
+<p>其数字之和，则是4 + 6 + 4 = 14。这个<strong>十四</strong>，和马太福音一章的“…共有<strong>十四</strong>代…也有<strong>十四</strong>代…又有<strong>十四</strong>代”，会有什么关系吗？😐PS：耶路撒冷的大卫王陵墓入口处有三种文字，第一行为希伯来文，注意中间那个词，那三条蝌蚪。</p>
 <p><img src="/img/Tomb_of_david.jpg" alt=""></p>
 <p>我们暂且打住，回到校验码和快速查错的正题，并以伪代码实现其算法，分析其时间、空间复杂度：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 载入希伯来字母和数字的转换表</span></span><br><span class="line">Map&lt;Character, Integer&gt; mappings = loadMappings();</span><br><span class="line"><span class="comment">// 计算原本、抄本的行、列校验码，时间复杂度O(m * n)</span></span><br><span class="line"><span class="keyword">char</span>[][] chars = loadTexts();</span><br><span class="line"><span class="comment">// 额外引入O(m + n)空间复杂度，真的物理空间...</span></span><br><span class="line"><span class="keyword">int</span>[] rowSums = <span class="keyword">new</span> <span class="keyword">int</span>[m], columnSums = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">        rowSums[i] += mappings.get(chars[i][j]);</span><br><span class="line">        columnSums[j] += mappings.get(chars[i][j]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span>[] sourceRowColumns = <span class="keyword">new</span> <span class="keyword">int</span>[m], sourceColumnSums = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ERROR_COUNT_LEAD_TO_DESTROY = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 逐行比较抄本和原本的校验码，如不相等，检查列验证码</span></span><br><span class="line">List&lt;Integer&gt; errors = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (rowSums[i] != sourceRowColumns[i]) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">            <span class="comment">// 如果已经发现三处错误，直接终止检查，直接销毁当前页...够狠，就这么干</span></span><br><span class="line">            <span class="keyword">if</span> (errors.size() == ERROR_COUNT_LEAD_TO_DESTROY)</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> TooManyErrorsLeadToDestroyException(errors.toString());</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (columnSums[j] != sourceColumnSums[j])</span><br><span class="line">                errors.add(i * m + j);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
