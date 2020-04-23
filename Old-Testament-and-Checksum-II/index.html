@@ -22,24 +22,26 @@
     var CONFIG = {"hostname":"www.oldyoungboy.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"MVXIUZGUK9","apiKey":"04899bdf842645b342457dee79db596b","indexName":"old-young-boy-index","hits":{"per_page":10},"labels":{"input_placeholder":"搜刮老杨","hits_empty":"嗨，啥都没找到: ${query}","hits_stats":"找到${hits}条记录，耗时${time}毫秒！"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="老杨同志·经球码他">
-<meta property="og:type" content="website">
-<meta property="og:title" content="老杨同志">
-<meta property="og:url" content="https://www.oldyoungboy.com/categories/%E5%9C%A3%E7%BB%8F%E7%AC%AC%E4%B8%80/%E4%BB%A3%E7%A0%81%E7%AC%AC%E4%B8%89/index.html">
+  <meta name="description" content="吴军博士《数学之美》第二版中提及的“纵横相加”校验码圣经抄本查错法，在页边附注的参考文章中并未找到直接相关内容，与之相近的内容，一番搜索之后，可见于Evidence for the Bible一书。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="希伯来圣经与校验码（下）">
+<meta property="og:url" content="https://www.oldyoungboy.com/Old-Testament-and-Checksum-II/index.html">
 <meta property="og:site_name" content="老杨同志">
-<meta property="og:description" content="老杨同志·经球码他">
+<meta property="og:description" content="吴军博士《数学之美》第二版中提及的“纵横相加”校验码圣经抄本查错法，在页边附注的参考文章中并未找到直接相关内容，与之相近的内容，一番搜索之后，可见于Evidence for the Bible一书。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.oldyoungboy.com/img/torah-scroll.jpg">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Ivan_Panin-by-Aronson-1916.jpg/360px-Ivan_Panin-by-Aronson-1916.jpg">
+<meta property="article:published_time" content="2020-04-20T03:56:16.000Z">
+<meta property="article:modified_time" content="2020-04-23T16:20:07.588Z">
 <meta property="article:author" content="老杨">
-<meta property="article:tag" content="圣经">
-<meta property="article:tag" content="神学">
-<meta property="article:tag" content="足球">
-<meta property="article:tag" content="代码">
-<meta property="article:tag" content="Java">
-<meta property="article:tag" content="其他">
-<meta property="article:tag" content="Nathanael Yang">
+<meta property="article:tag" content="吴军">
+<meta property="article:tag" content="数学之美">
+<meta property="article:tag" content="Ivan Panin">
+<meta property="article:tag" content="Bible numerics">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.oldyoungboy.com/img/torah-scroll.jpg">
 
-<link rel="canonical" href="https://www.oldyoungboy.com/categories/%E5%9C%A3%E7%BB%8F%E7%AC%AC%E4%B8%80/%E4%BB%A3%E7%A0%81%E7%AC%AC%E4%B8%89/">
+<link rel="canonical" href="https://www.oldyoungboy.com/Old-Testament-and-Checksum-II/">
 
 
 <script id="page-configurations">
@@ -47,11 +49,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false
+    isPost : true
   };
 </script>
 
-  <title>分类: 代码第三 | 老杨同志</title>
+  <title>希伯来圣经与校验码（下） | 老杨同志</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161847697-1"></script>
     <script pjax>
@@ -217,74 +219,186 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">代码第三
-          <small>分类</small>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.oldyoungboy.com/Old-Testament-and-Checksum-II/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="老杨">
+      <meta itemprop="description" content="老杨同志·经球码他">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="老杨同志">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          希伯来圣经与校验码（下）
         </h1>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-19 20:56:16" itemprop="dateCreated datePublished" datetime="2020-04-19T20:56:16-07:00">2020-04-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-23 09:20:07" itemprop="dateModified" datetime="2020-04-23T09:20:07-07:00">2020-04-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9C%A3%E7%BB%8F%E7%AC%AC%E4%B8%80/" itemprop="url" rel="index"><span itemprop="name">圣经第一</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9C%A3%E7%BB%8F%E7%AC%AC%E4%B8%80/%E4%BB%A3%E7%A0%81%E7%AC%AC%E4%B8%89/" itemprop="url" rel="index"><span itemprop="name">代码第三</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/Old-Testament-and-Checksum-II/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Old-Testament-and-Checksum-II/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
+        <p>吴军博士《数学之美》第二版中提及的“纵横相加”校验码圣经抄本查错法，在页边附注的参考文章中并未找到直接相关内容，与之相近的内容，一番搜索之后，可见于<a href="https://books.google.com/books?id=zd27DwAAQBAJ&pg=PA9&lpg=PA9&dq=old+testament+checksum&source=bl&ots=s8WZhP0S5I&sig=ACfU3U04b1TcJjArZ2enqzMKIr2McQ0pUA&hl=en&sa=X&ved=2ahUKEwjJuImqyLfoAhWLJTQIHRCgBqgQ6AEwEXoECAoQAQ#v=onepage&q=old%20testament%20checksum&f=false" target="_blank" rel="noopener">Evidence for the Bible</a>一书。</p>
+<p><img src="/img/torah-scroll.jpg" alt=""><a id="more"></a></p>
+<h3 id="马索拉文士的做法"><a href="#马索拉文士的做法" class="headerlink" title="马索拉文士的做法"></a>马索拉文士的做法</h3><blockquote>
+<p>In order to accomplish this task, the Masoretes used very strict rituals to insure that errors would not creep in. Every detail of the copying process was prescribed, from the writing materials (the skin of a clean animal), to the number of columns that were to appear on each “page,” to the length of each column (greater than 48 but less than 60), to the width of a column (30 letters). Even the color of the ink (black) was specified. Nothing was to be written from memory. Copies could only be made from an authentic copy that was still in good condition.</p>
+<p>In addition to these precautions, the Masoretes used a technique similar to one used by computers to insure that data is transmitted correctly. In computers, this technique is referred to as a checksum. <strong>Put simply, what the Masoretes did was count everything that could be counted. Each verse, word, and letter in every book had a number. The middle word and the middle letter of each book was known. Even the number of times each letter of the alphabet occurred in a book was counted. In this way, each new copy could be accurately checked to see if any errors had been made. If the numbers did not come out right, something was wrong and the error would be found and corrected.</strong></p>
+</blockquote>
+<p>这段描述与吴军博士提及的校验码方式较为接近，横向相加可以确认，但纵向列模式相加尚存疑问。无论如何，每节经文的“校验码”会计算，且中间词、中间字也会用于快速定位。撇开一些暂时难以厘清的细节问题，马索拉文士确实是Checksum的先行者。</p>
+<h3 id="“走火入魔”的圣经数字学之父"><a href="#“走火入魔”的圣经数字学之父" class="headerlink" title="“走火入魔”的圣经数字学之父"></a>“走火入魔”的圣经数字学之父</h3><p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Ivan_Panin-by-Aronson-1916.jpg/360px-Ivan_Panin-by-Aronson-1916.jpg" alt=""></p>
+<p><a href="https://en.wikipedia.org/wiki/Ivan_Panin" target="_blank" rel="noopener">Ivan Panin</a>，人称“圣经数字学之父”的这位老兄，在经文的数字化研究方面近乎“走火入魔”！他原本是个顽固的不可知论者，却因圣经文字背后蕴藏的数字结构编码入门<a href="https://www.apostolic.edu/the-first-checksum/" target="_blank" rel="noopener">归信</a>，更在1891年出版了一本专著：<a href="https://books.logos.com/books/4485#content=/books/4485" target="_blank" rel="noopener">The Structure of the Bible: A Proof of the Verbal Inspiration of Scripture</a>——这还只是开始——Ivan兄在1942年逝去之前，50多年中，一直对这项研究乐此不疲。他在New York Sun上面向读者下挑战书——“谁能驳倒我的观点？！”，自个翻译新约——圣经数字学加强版的新约😅——The New Testament from the Greek as Established by Bible Numerics。实际上，要能这样“疯魔”的门槛着实不低——需要熟悉两希原文，需要相当的数学敏感，普通吃瓜群众想跟风都难。</p>
+<p>对他的研究方法是否靠谱、研究结果价值几何，众说纷坛，但最低限度对当事人，窥见了经文底下的别样之美，并沉醉其中，也就足够了，五十多年的持续研究和输出，除了真爱，还能是什么呢？</p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>吴军博士《数学之美》中对马索拉文士的校验码查错法介绍虽然稍显粗放，但用来“观其大略”也差不多齐了。在相关资料把握还不充分时，我无力对此问题做进一步深究，毕竟圣经数字学是个黑洞，可以瞬间抽干如Ivan Panin这等牛人的大半生精力，我辈凡人还是早些抽身为妙😅</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\Old-Testament-and-Checksum\" rel="bookmark">希伯来圣经与校验码（上）</a></div>
+    </li>
+  </ul>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-04-19T20:56:16-07:00"
-              content="2020-04-19">
-          04-19
-        </time>
-      </div>
+        
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/Old-Testament-and-Checksum-II/" itemprop="url">
-            <span itemprop="name">希伯来圣经与校验码（下）</span>
-          </a>
-      </h2>
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>老杨
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.oldyoungboy.com/Old-Testament-and-Checksum-II/" title="希伯来圣经与校验码（下）">https://www.oldyoungboy.com/Old-Testament-and-Checksum-II/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
 
-    </header>
-  </article>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+          </div>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-29T11:42:49-07:00"
-              content="2020-03-29">
-          03-29
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/Old-Testament-and-Checksum/" itemprop="url">
-            <span itemprop="name">希伯来圣经与校验码（上）</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
     </div>
   </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/Timothy-Richard-and-Five-loaves-of-bread-and-two-fish/" rel="prev" title="听者有意之三：李提摩太与五饼二鱼">
+      <i class="fa fa-chevron-left"></i> 听者有意之三：李提摩太与五饼二鱼
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
   
   
   
 
-  
-
+  </div>
 
 
           </div>
           
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -331,6 +445,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#马索拉文士的做法"><span class="nav-number">1.</span> <span class="nav-text">马索拉文士的做法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#“走火入魔”的圣经数字学之父"><span class="nav-number">2.</span> <span class="nav-text">“走火入魔”的圣经数字学之父</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结语"><span class="nav-number">3.</span> <span class="nav-text">结语</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -605,6 +720,26 @@ window.addEventListener('pjax:success', () => {
   }
   // defer loading until the whole page loading is completed
   window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://www.oldyoungboy.com/Old-Testament-and-Checksum-II/";
+    this.page.identifier = "Old-Testament-and-Checksum-II/";
+    this.page.title = "希伯来圣经与校验码（下）";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://nathanaelyang.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
 </script>
 
     </div>
