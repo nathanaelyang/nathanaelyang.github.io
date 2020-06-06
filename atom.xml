@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.oldyoungboy.com/"/>
-  <updated>2020-06-04T05:59:21.084Z</updated>
+  <updated>2020-06-06T01:29:54.617Z</updated>
   <id>https://www.oldyoungboy.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>孩子们的画：五旬节特辑</title>
+    <link href="https://www.oldyoungboy.com/OAC-Paintings-on-Pentecost-2020/"/>
+    <id>https://www.oldyoungboy.com/OAC-Paintings-on-Pentecost-2020/</id>
+    <published>2020-06-06T01:24:09.000Z</published>
+    <updated>2020-06-06T01:29:54.617Z</updated>
+    
+    <content type="html"><![CDATA[<p>孩子们在五旬节时的画作。一如既往地，孩子们高，<a href="https://www.facebook.com/creatione" target="_blank" rel="noopener">牛老师</a>牛！仔细品味这些画，有无感到圣灵的恩典流淌其中？</p><p><img src="/img/Pentecost2020/Rebecca-Quan.jpg" alt=""><a id="more"></a></p><p><img src="/img/Pentecost2020/Petra.jpg" alt=""></p><p><img src="/img/Pentecost2020/Petra-II.jpg" alt=""></p><p><img src="/img/Pentecost2020/Petra-III.jpg" alt=""></p><p><img src="/img/Pentecost2020/Not-Sam.jpg" alt=""></p><p><img src="/img/Pentecost2020/Tom-Yang.jpg" alt=""></p><p><img src="/img/Pentecost2020/Tom-Yang-II.jpg" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;孩子们在五旬节时的画作。一如既往地，孩子们高，&lt;a href=&quot;https://www.facebook.com/creatione&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;牛老师&lt;/a&gt;牛！仔细品味这些画，有无感到圣灵的恩典流淌其中？&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/Pentecost2020/Rebecca-Quan.jpg&quot; alt=&quot;&quot;&gt;
+    
+    </summary>
+    
+    
+      <category term="圣经第一" scheme="https://www.oldyoungboy.com/categories/%E5%9C%A3%E7%BB%8F%E7%AC%AC%E4%B8%80/"/>
+    
+    
+      <category term="OAC SF" scheme="https://www.oldyoungboy.com/tags/OAC-SF/"/>
+    
+      <category term="绘画" scheme="https://www.oldyoungboy.com/tags/%E7%BB%98%E7%94%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>分开之后</title>
@@ -476,32 +502,6 @@
     
     
       <category term="听者有意" scheme="https://www.oldyoungboy.com/tags/%E5%90%AC%E8%80%85%E6%9C%89%E6%84%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>希伯来圣经与校验码（下）</title>
-    <link href="https://www.oldyoungboy.com/Old-Testament-and-Checksum-II/"/>
-    <id>https://www.oldyoungboy.com/Old-Testament-and-Checksum-II/</id>
-    <published>2020-04-20T03:56:16.000Z</published>
-    <updated>2020-04-23T16:20:07.588Z</updated>
-    
-    <content type="html"><![CDATA[<p>吴军博士《数学之美》第二版中提及的“纵横相加”校验码圣经抄本查错法，在页边附注的参考文章中并未找到直接相关内容，与之相近的内容，一番搜索之后，可见于<a href="https://books.google.com/books?id=zd27DwAAQBAJ&pg=PA9&lpg=PA9&dq=old+testament+checksum&source=bl&ots=s8WZhP0S5I&sig=ACfU3U04b1TcJjArZ2enqzMKIr2McQ0pUA&hl=en&sa=X&ved=2ahUKEwjJuImqyLfoAhWLJTQIHRCgBqgQ6AEwEXoECAoQAQ#v=onepage&q=old%20testament%20checksum&f=false" target="_blank" rel="noopener">Evidence for the Bible</a>一书。</p><p><img src="/img/torah-scroll.jpg" alt=""><a id="more"></a></p><h3 id="马索拉文士的做法"><a href="#马索拉文士的做法" class="headerlink" title="马索拉文士的做法"></a>马索拉文士的做法</h3><blockquote><p>In order to accomplish this task, the Masoretes used very strict rituals to insure that errors would not creep in. Every detail of the copying process was prescribed, from the writing materials (the skin of a clean animal), to the number of columns that were to appear on each “page,” to the length of each column (greater than 48 but less than 60), to the width of a column (30 letters). Even the color of the ink (black) was specified. Nothing was to be written from memory. Copies could only be made from an authentic copy that was still in good condition.</p><p>In addition to these precautions, the Masoretes used a technique similar to one used by computers to insure that data is transmitted correctly. In computers, this technique is referred to as a checksum. <strong>Put simply, what the Masoretes did was count everything that could be counted. Each verse, word, and letter in every book had a number. The middle word and the middle letter of each book was known. Even the number of times each letter of the alphabet occurred in a book was counted. In this way, each new copy could be accurately checked to see if any errors had been made. If the numbers did not come out right, something was wrong and the error would be found and corrected.</strong></p></blockquote><p>这段描述与吴军博士提及的校验码方式较为接近，横向相加可以确认，但纵向列模式相加尚存疑问。无论如何，每节经文的“校验码”会计算，且中间词、中间字也会用于快速定位。撇开一些暂时难以厘清的细节问题，马索拉文士确实是Checksum的先行者。</p><h3 id="“走火入魔”的圣经数字学之父"><a href="#“走火入魔”的圣经数字学之父" class="headerlink" title="“走火入魔”的圣经数字学之父"></a>“走火入魔”的圣经数字学之父</h3><p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Ivan_Panin-by-Aronson-1916.jpg/360px-Ivan_Panin-by-Aronson-1916.jpg" alt=""></p><p><a href="https://en.wikipedia.org/wiki/Ivan_Panin" target="_blank" rel="noopener">Ivan Panin</a>，人称“圣经数字学之父”的这位老兄，在经文的数字化研究方面近乎“走火入魔”！他原本是个顽固的不可知论者，却因圣经文字背后蕴藏的数字结构编码入门<a href="https://www.apostolic.edu/the-first-checksum/" target="_blank" rel="noopener">归信</a>，更在1891年出版了一本专著：<a href="https://books.logos.com/books/4485#content=/books/4485" target="_blank" rel="noopener">The Structure of the Bible: A Proof of the Verbal Inspiration of Scripture</a>——这还只是开始——Ivan兄在1942年逝去之前，50多年中，一直对这项研究乐此不疲。他在New York Sun上面向读者下挑战书——“谁能驳倒我的观点？！”，自个翻译新约——圣经数字学加强版的新约😅——The New Testament from the Greek as Established by Bible Numerics。实际上，要能这样“疯魔”的门槛着实不低——需要熟悉两希原文，需要相当的数学敏感，普通吃瓜群众想跟风都难。</p><p>对他的研究方法是否靠谱、研究结果价值几何，众说纷坛，但最低限度对当事人，窥见了经文底下的别样之美，并沉醉其中，也就足够了，五十多年的持续研究和输出，除了真爱，还能是什么呢？</p><h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>吴军博士《数学之美》中对马索拉文士的校验码查错法介绍虽然稍显粗放，但用来“观其大略”也差不多齐了。在相关资料把握还不充分时，我无力对此问题做进一步深究，毕竟圣经数字学是个黑洞，可以瞬间抽干如Ivan Panin这等牛人的大半生精力，我辈凡人还是早些抽身为妙😅</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;吴军博士《数学之美》第二版中提及的“纵横相加”校验码圣经抄本查错法，在页边附注的参考文章中并未找到直接相关内容，与之相近的内容，一番搜索之后，可见于&lt;a href=&quot;https://books.google.com/books?id=zd27DwAAQBAJ&amp;pg=PA9&amp;lpg=PA9&amp;dq=old+testament+checksum&amp;source=bl&amp;ots=s8WZhP0S5I&amp;sig=ACfU3U04b1TcJjArZ2enqzMKIr2McQ0pUA&amp;hl=en&amp;sa=X&amp;ved=2ahUKEwjJuImqyLfoAhWLJTQIHRCgBqgQ6AEwEXoECAoQAQ#v=onepage&amp;q=old%20testament%20checksum&amp;f=false&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Evidence for the Bible&lt;/a&gt;一书。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/img/torah-scroll.jpg&quot; alt=&quot;&quot;&gt;
-    
-    </summary>
-    
-    
-      <category term="圣经第一" scheme="https://www.oldyoungboy.com/categories/%E5%9C%A3%E7%BB%8F%E7%AC%AC%E4%B8%80/"/>
-    
-      <category term="代码第三" scheme="https://www.oldyoungboy.com/categories/%E5%9C%A3%E7%BB%8F%E7%AC%AC%E4%B8%80/%E4%BB%A3%E7%A0%81%E7%AC%AC%E4%B8%89/"/>
-    
-    
-      <category term="算法" scheme="https://www.oldyoungboy.com/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
