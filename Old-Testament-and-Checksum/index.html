@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="tD6ml_Bh4YJOVaPnuLBQg2BGc801kujVAODWObivcEk">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.oldyoungboy.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"MVXIUZGUK9","apiKey":"04899bdf842645b342457dee79db596b","indexName":"old-young-boy-index","hits":{"per_page":10},"labels":{"input_placeholder":"搜刮老杨","hits_empty":"嗨，啥都没找到: ${query}","hits_stats":"找到${hits}条记录，耗时${time}毫秒！"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="吴军博士的《数学之美》中，有一段关于圣经和校验码的描述让我极感兴趣，一直希望花点时间研究一下这个话题，托疫情的福，总算可以了却这桩心事了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="希伯来圣经与校验码（上）">
+<meta property="og:url" content="https://www.oldyoungboy.com/Old-Testament-and-Checksum/index.html">
+<meta property="og:site_name" content="老杨同志">
+<meta property="og:description" content="吴军博士的《数学之美》中，有一段关于圣经和校验码的描述让我极感兴趣，一直希望花点时间研究一下这个话题，托疫情的福，总算可以了却这桩心事了。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.oldyoungboy.com/img/hebrew-bible.jpg">
+<meta property="og:image" content="https://www.oldyoungboy.com/img/gematria-chart.jpg">
+<meta property="og:image" content="https://www.oldyoungboy.com/img/Tomb_of_david.jpg">
+<meta property="og:image" content="https://www.oldyoungboy.com/img/jewish-bible.png">
+<meta property="article:published_time" content="2020-03-29T18:42:49.000Z">
+<meta property="article:modified_time" content="2026-02-26T03:13:11.149Z">
+<meta property="article:author" content="老杨">
+<meta property="article:tag" content="吴军">
+<meta property="article:tag" content="数学之美">
+<meta property="article:tag" content="圣经">
+<meta property="article:tag" content="抄本">
+<meta property="article:tag" content="原本">
+<meta property="article:tag" content="校验码">
+<meta property="article:tag" content="出错率">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.oldyoungboy.com/img/hebrew-bible.jpg">
+
+<link rel="canonical" href="https://www.oldyoungboy.com/Old-Testament-and-Checksum/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>希伯来圣经与校验码（上） | 老杨同志</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161847697-1"></script>
+    <script pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-161847697-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="老杨同志" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">老杨同志</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">经球码他</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-圣经第一">
+
+    <a href="/categories/%E5%9C%A3%E7%BB%8F%E7%AC%AC%E4%B8%80/" rel="section"><i class="fa fa-fw fa-book"></i>圣经第一<span class="badge">28</span></a>
+
+  </li>
+        <li class="menu-item menu-item-足球第二">
+
+    <a href="/categories/%E8%B6%B3%E7%90%83%E7%AC%AC%E4%BA%8C/" rel="section"><i class="fa fa-fw fa-futbol-o"></i>足球第二<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-代码第三">
+
+    <a href="/categories/%E4%BB%A3%E7%A0%81%E7%AC%AC%E4%B8%89/" rel="section"><i class="fa fa-fw fa-code"></i>代码第三<span class="badge">4</span></a>
+
+  </li>
+        <li class="menu-item menu-item-其他第四">
+
+    <a href="/categories/%E5%85%B6%E4%BB%96%E7%AC%AC%E5%9B%9B/" rel="section"><i class="fa fa-fw fa-bell-slash-o"></i>其他第四<span class="badge">6</span></a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签一览<span class="badge">34</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>所有博文<span class="badge">41</span></a>
+
+  </li>
+        <li class="menu-item menu-item-老杨正传">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>老杨正传</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>站内搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+      <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+  </div>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.oldyoungboy.com/Old-Testament-and-Checksum/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="老杨">
+      <meta itemprop="description" content="老杨同志·经球码他">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="老杨同志">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          希伯来圣经与校验码（上）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-29 11:42:49" itemprop="dateCreated datePublished" datetime="2020-03-29T11:42:49-07:00">2020-03-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2026-02-25 19:13:11" itemprop="dateModified" datetime="2026-02-25T19:13:11-08:00">2026-02-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9C%A3%E7%BB%8F%E7%AC%AC%E4%B8%80/" itemprop="url" rel="index"><span itemprop="name">圣经第一</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9C%A3%E7%BB%8F%E7%AC%AC%E4%B8%80/%E4%BB%A3%E7%A0%81%E7%AC%AC%E4%B8%89/" itemprop="url" rel="index"><span itemprop="name">代码第三</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/Old-Testament-and-Checksum/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Old-Testament-and-Checksum/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>吴军博士的《数学之美》中，有一段关于圣经和校验码的描述让我极感兴趣，一直希望花点时间研究一下这个话题，托疫情的福，总算可以了却这桩心事了。</p>
+<p><img src="/img/hebrew-bible.jpg" alt=""><a id="more"></a></p>
+<p>吴军博士虽然是位计算机科学家，但对基督教的了解似乎不多，《数学之美》前后两版，第12页的页边注释中，存在明显常识性错误，比如“《圣经》的中译本，不同版本字数不同，大约在90-100万字之间。<strong>其中《旧约》和《新约》大致各占篇幅的一半，约50万字。</strong>”，只要手头有任何一本中文圣经，无论是和合本、新译本、当代译本亦或其他译本，翻到新约开始的页码，都不会得出“各占篇幅的一半，约50万字”的结论。</p>
+<p>和合本圣经93万字多，旧约71万字不到，新约22万字多一些，以篇幅而论，新约不足1/4。《数学之美》中介绍的校验码查错机制，仅限于旧约圣经——严格来说，应该是希伯来圣经，因为犹太教的希伯来圣经和基督教的旧约圣经，虽然内容基本一致，编排上面却有一定差异。</p>
+<p>回到正题，关于圣经与校验码，吴军写道：</p>
+<blockquote>
+<p>“虽然做事认真的犹太人要求在抄写《圣经》时，要虔诚并且打起十二分精神，尤其是每写到”上帝“（God和Lord）这个词时要去洗手祈祷，不过抄写错误还是难以避免。于是犹太人发明了一种类似于我们今天计算机和通信中校验码的方法。他们把每一个希伯来字母对应于一个数字，这样每行文字加起来便得到一个特殊的数字，这个数字便成为了这一行的校验码。同样，对于每一列也是这样处理。当犹太学者抄完一页《圣经》时，他们需要把每一行的文字加起来，看看新的校验码是否和原文的相同，然后对每一页进行同样的处理。如果这一页每一行和每一列的校验码和原文完全相同，说明这一页的抄写无误。如果某行的校验码和原文中的对应不上，则说明这一行至少有一个抄写错误。当然，错误对应列的校验码也一定和原文对不上，这样可以很快找到出错的地方。这背后的原理和我们今天的各种校验是相同的。”</p>
+</blockquote>
+<p>第一次读到这段时，颇有点大开眼界的感觉，对想到这方法的犹太教文士，不能不佩服得五体投地，心想他们要在今天这时代搞IT，会不会是“拳打Google、脚踢Facebook”般的存在？😅</p>
+<p>对我等普罗大众，希伯来文实在和蝌蚪文没什么太大区别，具体每个希伯来字母对应哪个数字，也只能在<a href="https://en.wikipedia.org/wiki/Hebrew_numerals" target="_blank" rel="noopener">维基百科</a>中睁大牛眼、尝试查上一查了。以大卫王的名字为例，希伯来语是<code>דוד</code>，按如下的转码表：</p>
+<p><img src="/img/gematria-chart.jpg" alt=""></p>
+<p>其发音为<code>d</code>、<code>w</code>和<code>d</code>，串联起来，自然而然地就可以想见其英文翻译为何会是<code>David</code>了。</p>
+<p>其数字之和，则是4 + 6 + 4 = 14。这个<strong>十四</strong>，和马太福音一章的“…共有<strong>十四</strong>代…也有<strong>十四</strong>代…又有<strong>十四</strong>代”，会有什么关系吗？😐PS：耶路撒冷的大卫王陵墓入口处有三种文字，第一行为希伯来文，注意中间那个词，那三条蝌蚪。</p>
+<p><img src="/img/Tomb_of_david.jpg" alt=""></p>
+<p>我们暂且打住，回到校验码和快速查错的正题，并以伪代码实现其算法，分析其时间、空间复杂度：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 载入希伯来字母和数字的转换表</span></span><br><span class="line">Map&lt;Character, Integer&gt; mappings = loadMappings();</span><br><span class="line"><span class="comment">// 计算原本、抄本的行、列校验码，时间复杂度O(m * n)</span></span><br><span class="line"><span class="keyword">char</span>[][] chars = loadTexts();</span><br><span class="line"><span class="comment">// 额外引入O(m + n)空间复杂度，真的物理空间...</span></span><br><span class="line"><span class="keyword">int</span>[] rowSums = <span class="keyword">new</span> <span class="keyword">int</span>[m], columnSums = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">        rowSums[i] += mappings.get(chars[i][j]);</span><br><span class="line">        columnSums[j] += mappings.get(chars[i][j]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span>[] sourceRowColumns = <span class="keyword">new</span> <span class="keyword">int</span>[m], sourceColumnSums = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ERROR_COUNT_LEAD_TO_DESTROY = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 逐行比较抄本和原本的校验码，如不相等，检查列验证码</span></span><br><span class="line">List&lt;Integer&gt; errors = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (rowSums[i] != sourceRowColumns[i]) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">            <span class="comment">// 如果已经发现三处错误，直接终止检查，直接销毁当前页...够狠，就这么干</span></span><br><span class="line">            <span class="keyword">if</span> (errors.size() == ERROR_COUNT_LEAD_TO_DESTROY)</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> TooManyErrorsLeadToDestroyException(errors.toString());</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (columnSums[j] != sourceColumnSums[j])</span><br><span class="line">                errors.add(i * m + j);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最理想的情况，在抄写完全正确的情况下，常规逐字检查，时间复杂度为O(m * n)，有校验码的行列检查，时间复杂度为O(m)。较真或是抬杠的话，仅从程序算法的角度考虑，其实还需要纳入校验码生成的时间复杂度O(m * n)，如此累加上去，这一算法似乎并无优势。然而，当我们考虑到算法的执行者并非电脑，而是人眼、人脑时，那么校验码算法的优势就极其明显了。额外引入的空间复杂度O(m + n)，将行、列校验码附在页边右侧和底部，不仅不影响经文的阅读和使用，似乎还可以强制保障抄本格式中行列的齐整，有点一举两得的意思。</p>
+<p><img src="/img/jewish-bible.png" alt=""></p>
+<p>最糟糕的情况，假定抄写错误不幸出现在最后三个字符，那么没有校验码的逐字检查，时间复杂度仍为O(m * n)，有校验码的逐字检查，为O(m + n)。</p>
+<p>对校验码查错算法，最糟糕的情况应该是三个错误字符分散在三行中，比如第一行、中间行、末尾行，此时其时间复杂度为O(m + 3 * n)。</p>
+<p>结合用户使用场景，校验码算法差不多是把查错的时间复杂度从O(n^2)结结实实提高到了O(n)，这一算法性能的改进，也间接降低了抄本的错误率。需求驱动创新，宗教需求同样驱动创新。</p>
+<p>这么一通假想的分析完毕，似乎这一话题可以初步告一段落了。然而，顺着12页的页边注13，找到<a href="https://bibleevidences.com/textual-evidence/" target="_blank" rel="noopener">Williams, Fred “Meticulous Care in the Transmission of the Bible.” Bible Evidences, n.d. Accessed October 11, 2008</a>这篇引用文章时，我发现，其中并未直接提及行、列校验码的方法，而仅仅只有这么一段话：</p>
+<blockquote>
+<p>The scribes who were in charge of the Old Testament text dedicated their lives to preserving the text’s accuracy when they made copies. The great lengths the scribes went to guarantee the reliability of the copies is illustrated by the fact that they would count every letter and every word, and record in the margins such things as the middle letter and word of the Torah. If a single error was found, the copy was immediately destroyed. As a software engineer, I can personally vouch that the scribe’s method of protecting the text is more rigorous than the common checksuming methods used today to protect software programs from corruption[3].</p>
+</blockquote>
+<p><a href="https://bibleevidences.com/author/admin/" target="_blank" rel="noopener">Williams, Fred</a>也是位程序猿！同行的雄文中有两点值得注意，一是文士们对抄写错误采取零容忍的态度（因而伪代码中的常量值需从3改为1😂），二是他认为文士们保护文本的方法比今日软件程序通行的校验码机制更为严格，理由？附注中有以下说明：</p>
+<blockquote>
+<p>A software checksum is typically the sum of bytes or words over the entire software program. In my 17 plus years as an engineer, I have never seen a software program that becomes corrupted yield a valid checksum which causes the corruption to go unnoticed. <strong>If a Bible manuscript copy had become corrupted but still yielded the proper word and letter count, it is highly likely that the corruption would still have been detected since the corrupted letter or word would make that portion of the text unreadable. A software program doesn’t have this added safeguard protection since the software is not readable text to the naked eye.</strong></p>
+</blockquote>
+<p>但是Williams的文章中似乎并未明确提及行列校验码的机制，而是“they would count every letter and every word, and record in the margins such things as the middle letter and word of the Torah”。</p>
+<p>那么，吴军博士那段让我兴奋不已的“一种基于行列校验码机制的希伯来圣经抄本快速排错算法”，源自何处？</p>
+<p><strong>未完待续</strong></p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\Old-Testament-and-Checksum-II\" rel="bookmark">希伯来圣经与校验码（下）</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>老杨
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.oldyoungboy.com/Old-Testament-and-Checksum/" title="希伯来圣经与校验码（上）">https://www.oldyoungboy.com/Old-Testament-and-Checksum/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/A-Great-Artist-Zimou-Tan/" rel="prev" title="身边的大画家：谭子谋老师">
+      <i class="fa fa-chevron-left"></i> 身边的大画家：谭子谋老师
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/What-is-that-to-thee-Follow-thou-me/" rel="next" title="与你何干？你跟从我吧！">
+      与你何干？你跟从我吧！ <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="老杨"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">老杨</p>
+  <div class="site-description" itemprop="description">老杨同志·经球码他</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:ny83427@gmail.com" title="伊妹 → mailto:ny83427@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>伊妹</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/ny83427" title="放码 → https:&#x2F;&#x2F;github.com&#x2F;ny83427" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>放码</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/nathanaelyang/" title="领英 → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;nathanaelyang&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-linkedin"></i>领英</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/ny83427" title="推特 → https:&#x2F;&#x2F;twitter.com&#x2F;ny83427" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>推特</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.oldyoungboys.club/" title="https:&#x2F;&#x2F;www.oldyoungboys.club" rel="noopener" target="_blank">老伙计俱乐部</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.javaneversleep.com/" title="https:&#x2F;&#x2F;www.javaneversleep.com" rel="noopener" target="_blank">Java睡不着</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">老杨</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">76k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:09</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.2
+  </div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e782f1010561fdb" async="async"></script>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      script.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+  <script pjax>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 24088,
+      el    : 'wpac-rating',
+      color : 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://nathanaelyang.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://www.oldyoungboy.com/Old-Testament-and-Checksum/";
+    this.page.identifier = "Old-Testament-and-Checksum/";
+    this.page.title = "希伯来圣经与校验码（上）";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://nathanaelyang.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+    </div>
+</body>
+</html>

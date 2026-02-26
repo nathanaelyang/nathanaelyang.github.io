@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="tD6ml_Bh4YJOVaPnuLBQg2BGc801kujVAODWObivcEk">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.oldyoungboy.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"MVXIUZGUK9","apiKey":"04899bdf842645b342457dee79db596b","indexName":"old-young-boy-index","hits":{"per_page":10},"labels":{"input_placeholder":"搜刮老杨","hits_empty":"嗨，啥都没找到: ${query}","hits_stats":"找到${hits}条记录，耗时${time}毫秒！"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="去年在Udemy上发了两门课，算是了却了一桩心事，当然，也多出来N桩心事——时不时有学员就“放码过来！作个Java实战派”、“放码过来！新版Java坦克大战”提问，目前为止，所有提问我都按承诺24小时内回复——当然，通常是几小时内就回复。但是，一位学员来信提到的下面这个问题，我却首次破例了😔">
+<meta property="og:type" content="article">
+<meta property="og:title" content="给一位Udemy学员的回复（之一）：Follow Design Pattern的正确姿势">
+<meta property="og:url" content="https://www.oldyoungboy.com/Reply-On-How-to-Follow-Design-Pattern/index.html">
+<meta property="og:site_name" content="老杨同志">
+<meta property="og:description" content="去年在Udemy上发了两门课，算是了却了一桩心事，当然，也多出来N桩心事——时不时有学员就“放码过来！作个Java实战派”、“放码过来！新版Java坦克大战”提问，目前为止，所有提问我都按承诺24小时内回复——当然，通常是几小时内就回复。但是，一位学员来信提到的下面这个问题，我却首次破例了😔">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.oldyoungboy.com/img/udemy-tankwar.jpg">
+<meta property="og:image" content="https://www.oldyoungboy.com/img/head-first-design-patterns.jpg">
+<meta property="article:published_time" content="2020-03-26T16:52:43.000Z">
+<meta property="article:modified_time" content="2026-02-26T03:13:11.149Z">
+<meta property="article:author" content="老杨">
+<meta property="article:tag" content="Udemy">
+<meta property="article:tag" content="坦克大战">
+<meta property="article:tag" content="设计模式">
+<meta property="article:tag" content="Design Pattern">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.oldyoungboy.com/img/udemy-tankwar.jpg">
+
+<link rel="canonical" href="https://www.oldyoungboy.com/Reply-On-How-to-Follow-Design-Pattern/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>给一位Udemy学员的回复（之一）：Follow Design Pattern的正确姿势 | 老杨同志</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161847697-1"></script>
+    <script pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-161847697-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="老杨同志" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">老杨同志</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">经球码他</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-圣经第一">
+
+    <a href="/categories/%E5%9C%A3%E7%BB%8F%E7%AC%AC%E4%B8%80/" rel="section"><i class="fa fa-fw fa-book"></i>圣经第一<span class="badge">28</span></a>
+
+  </li>
+        <li class="menu-item menu-item-足球第二">
+
+    <a href="/categories/%E8%B6%B3%E7%90%83%E7%AC%AC%E4%BA%8C/" rel="section"><i class="fa fa-fw fa-futbol-o"></i>足球第二<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-代码第三">
+
+    <a href="/categories/%E4%BB%A3%E7%A0%81%E7%AC%AC%E4%B8%89/" rel="section"><i class="fa fa-fw fa-code"></i>代码第三<span class="badge">4</span></a>
+
+  </li>
+        <li class="menu-item menu-item-其他第四">
+
+    <a href="/categories/%E5%85%B6%E4%BB%96%E7%AC%AC%E5%9B%9B/" rel="section"><i class="fa fa-fw fa-bell-slash-o"></i>其他第四<span class="badge">6</span></a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签一览<span class="badge">34</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>所有博文<span class="badge">41</span></a>
+
+  </li>
+        <li class="menu-item menu-item-老杨正传">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>老杨正传</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>站内搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+      <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+  </div>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.oldyoungboy.com/Reply-On-How-to-Follow-Design-Pattern/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="老杨">
+      <meta itemprop="description" content="老杨同志·经球码他">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="老杨同志">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          给一位Udemy学员的回复（之一）：Follow Design Pattern的正确姿势
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-26 09:52:43" itemprop="dateCreated datePublished" datetime="2020-03-26T09:52:43-07:00">2020-03-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2026-02-25 19:13:11" itemprop="dateModified" datetime="2026-02-25T19:13:11-08:00">2026-02-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BB%A3%E7%A0%81%E7%AC%AC%E4%B8%89/" itemprop="url" rel="index"><span itemprop="name">代码第三</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/Reply-On-How-to-Follow-Design-Pattern/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Reply-On-How-to-Follow-Design-Pattern/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>去年在Udemy上发了两门课，算是了却了一桩心事，当然，也多出来N桩心事——时不时有学员就“<a href="https://www.udemy.com/course/java-warrior-part1/?referralCode=5777839AB585A9602DFE" target="_blank" rel="noopener">放码过来！作个Java实战派</a>”、“<a href="https://www.udemy.com/course/java-tank-war/?couponCode=JAVANEVERSLEEP-MAY" target="_blank" rel="noopener">放码过来！新版Java坦克大战</a>”提问，目前为止，所有提问我都按承诺24小时内回复——当然，通常是几小时内就回复。但是，一位学员来信提到的下面这个问题，我却首次破例了😔</p>
+<p><a href="https://www.udemy.com/course/java-tank-war/?couponCode=JAVANEVERSLEEP-MAY" target="_blank" rel="noopener"><img src="/img/udemy-tankwar.jpg" alt=""></a><a id="more"></a></p>
+<p>这位台湾小帅哥问的是什么呢？</p>
+<blockquote>
+<p>Nathanael老師您好, 我即將完成您的tank課程！這一路學到很多, 但是也有發現自己有很多不足。特別是在OOD的部分, 很難想到像老師您一樣有系統性的去設計一個一個的class, 想請問老師您有follow什麼Design pattern嗎？</p>
+<p>另外, 我想將這個project寫在履歷上, 但是我沒有做過這種project, 所以我不知道從何寫起, 以及一個面試官, 一個senior希望從這個項目看到什麼樣的重點及技能。能不能請老師稍微分享一下您的經驗, 若您是面試官, 您希望在這個project上看到我學會了什麼, 以及什麼市值得寫在履歷上的呢？<br>另外雖然我是一個newbie, 但是希望老師之後課程可以加入一個design pattern 或是一個更詳細high level 的 project idea, 謝謝老師的教導～！</p>
+</blockquote>
+<p>为了回答这些问题，我至少掉了三十根头发。厌烦絮叨，只想看看该如何行动的急性子，可以直接跳到“<a href="#读一本书，行万里路">读一本书，行万里路</a>”。</p>
+<h3 id="我Follow了什么Design-Pattern？"><a href="#我Follow了什么Design-Pattern？" class="headerlink" title="我Follow了什么Design Pattern？"></a>我Follow了什么Design Pattern？</h3><p>长话短说，我没有刻意Follow什么Design Pattern。对坦克大战这样一个小型项目，设计Class实际是水到渠成的过程。分析需求、迭代开发和测试，一个个Class的出现就会是顺理成章的事情。这些Class的一些共性，随着开发过程的深入会慢慢浮现出来，在此基础上，我们可以作一些必要的抽象和剥离，比如<a href="https://github.com/ny83427/tankwar/blob/solution/src/GameObject.java" target="_blank" rel="noopener"><code>GameObject</code></a>是在后期——而不是一开始就出现。</p>
+<p>有两种思考进路：先具体再抽象，先抽象再具体。体现在开发过程中，可能就是在动手写代码之前，设计、规划需要做到何种程度的问题。这两种进路，根据情况的不同，使用的方式也不同。但大体来说，我更习惯于先具体再抽象，因为这更能保证抽象是必要的、最小的。可能有人担心没有想清楚就开干是否会导致很多返工，有可能，但是不幸的是，我不是那种一开始就可以想清楚的人😭当然，这并不可怕，有重构和各类测试保驾护航，小改、大改甚至魔改都不是问题。</p>
+<p>实际上，“很難想到像老師您一樣有系統性的去設計一個一個的class”，这主要是一个经验积累的问题，与Design Pattern几乎无关。完成的项目越多，掉进的坑、踩过的雷越多，当拿到一个需求并完成分析之后，OOD的设计会在自然不断的迭代中完成更新，并逐步达到一个较为理想的状态。所以，少年，日写代码三百行，不辞长作程序猿。</p>
+<p>我所参与不同公司的项目中，通常当一个Feature下来之后，项目组的资深架构师会要求开发人员完成一个初始设计并进行评审，其主要目的是避免开发人员的思路太不合理——以致几乎可以确定这么折腾必定会埋下N多地雷，评审不会期望在正式开发之前，可以事无巨细、面面俱到地规划未来。</p>
+<h3 id="Follow-Design-Pattern的正确姿势"><a href="#Follow-Design-Pattern的正确姿势" class="headerlink" title="Follow Design Pattern的正确姿势"></a>Follow Design Pattern的正确姿势</h3><p>先下结论：根据需要Follow，为了让代码变得更好去Follow。这很废话，但是我也只能这么说了，抱歉。</p>
+<p>比如坦克大战中，<code>GameClient</code>是个全局唯一的对象，那么，当游戏中的其他对象需要访问它时，我们需要确保<code>GameClient</code>在虚拟机中只有一个实例，如何做到？</p>
+<p>单例模式（Singleton）就自然而然出现，饿汉式（Eager Singleton）单例也会是我们的第一选择：最简单、最易于实现。</p>
+<p>饿汉式单例可以运行得很好，直到某天你发现，为了让饿汉吃饱，为了让这个单例被构建出来，系统的启动时间显著增加了，而实际上系统启动时我们并不需要这条汉子，仅仅只在某个下雨的星期天，我们才想起这汉子，叫他给我们送外卖。</p>
+<p>于是懒汉式（Lazy Initial Singleton）应运而生，仅当第一次用到时，才去初始化。</p>
+<p>懒汉式单例可以运行得很好，直到某天你发现，有一定的概率，系统中悲剧地出现了两条汉子——天下大乱了！</p>
+<p>于是懒汉式单例的线程安全问题浮出水面，方法级<code>synchronized</code>，还是代码块<code>synchronized</code>，如果是代码块<code>synchronized</code>，是否需要双保险才能保障？</p>
+<p>单例问题、模式似乎就到此终止了，直到某天你发现，前Google工程师Bob Lee在折腾<a href="http://blog.crazybob.org/2007/01/lazy-loading-singletons.html" target="_blank" rel="noopener">Initialization on Demand Holder (IODH) idiom</a>，你不禁感叹：还能这么玩？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonHolder</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> Singleton instance = <span class="keyword">new</span> Singleton();    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> SingletonHolder.instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>看清楚了吗少年？我们不需要刻意Follow什么Pattern，但是在解决一个个问题的过程中，我们会自然而然地接触到这些Pattern，了解它们合适的使用场景。某些时候，像Crazy Bob这样脑洞清奇的大牛，还能时不时给你来点猛料和惊喜😄</p>
+<p>接下来我们再谈一下“为了让代码变得更好去Follow”，这里的好代码，我们尽可能不搞印象派，而暂时只从以下三个方面衡量：</p>
+<ul>
+<li>代码Bug多吗？测试同事喜欢你吗？</li>
+<li>需求变更，改起来方便快捷吗？改完之后心里踏实吗，还是要烧香拜佛？</li>
+<li>代码方便测试、易于测试吗？还是改完之后因为太难测试，干脆就不测试了？</li>
+</ul>
+<p>就先只谈这三个很直观的方面，暂时略过其他不太直观的东东。</p>
+<p>设计模式使用得当，可以确凿无疑地让代码易于测试、易于维护、Bug最少，实际上，代码写多了，出于对更高更强更快的追求和折腾，有一些设计模式你会无师自通，因为英雄所见，一般都略同嘛。</p>
+<p>比如，你受不了裸写JDBC这种非人类的搞法，你发现模板模式让你的生活多少美好了一些：你要写的代码显著变少了，容易搞出问题的复制黏贴基本没了，要升级到数据库连接池也只需要修改一处了…</p>
+<h3 id="读一本书，行万里路"><a href="#读一本书，行万里路" class="headerlink" title="读一本书，行万里路"></a>读一本书，行万里路</h3><p>最后，我的建议是快速通读一本关于设计模式的好书，然后丢下它，在痛苦而漫长的代码生涯中去自然而然地Follow他们。为赋新词强说愁的Follow方式很危险，很容易为了设计模式而设计模式。</p>
+<p>如果只能推荐一本，那么我会推荐这本小人书：<a href="https://amzn.to/2vQ4YcA" target="_blank" rel="noopener">Head First Design Patterns: A Brain-Friendly Guide</a>，中文译本是“<a href="https://amzn.to/2wGRT5L" target="_blank" rel="noopener">深入浅出设计模式</a>”。相信我，她比四人帮的名著更适合绝大部分人。</p>
+<p><a href="https://amzn.to/2vQ4YcA" target="_blank" rel="noopener"><img src="/img/head-first-design-patterns.jpg" alt=""></a></p>
+<p>关于这个项目如何用在简历中的问题，下回再说，等掉够了四十根头发，应该就成了。</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\Reply-on-How-to-Make-Good-Use-of-TankWar-in-Your-Resume\" rel="bookmark">给一位Udemy学员的回复（之二）：如何在简历中榨干坦克大战的剩余价值？</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>老杨
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.oldyoungboy.com/Reply-On-How-to-Follow-Design-Pattern/" title="给一位Udemy学员的回复（之一）：Follow Design Pattern的正确姿势">https://www.oldyoungboy.com/Reply-On-How-to-Follow-Design-Pattern/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%80%81%E6%9D%A8%E7%9A%84Udemy%E8%AF%BE/" rel="tag"># 老杨的Udemy课</a>
+              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag"># 设计模式</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/First-Deploy-to-Maven-Central-MWS-Java-Client/" rel="prev" title="在Maven中央仓库留个印记">
+      <i class="fa fa-chevron-left"></i> 在Maven中央仓库留个印记
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/Reply-on-How-to-Make-Good-Use-of-TankWar-in-Your-Resume/" rel="next" title="给一位Udemy学员的回复（之二）：如何在简历中榨干坦克大战的剩余价值？">
+      给一位Udemy学员的回复（之二）：如何在简历中榨干坦克大战的剩余价值？ <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#我Follow了什么Design-Pattern？"><span class="nav-number">1.</span> <span class="nav-text">我Follow了什么Design Pattern？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Follow-Design-Pattern的正确姿势"><span class="nav-number">2.</span> <span class="nav-text">Follow Design Pattern的正确姿势</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读一本书，行万里路"><span class="nav-number">3.</span> <span class="nav-text">读一本书，行万里路</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="老杨"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">老杨</p>
+  <div class="site-description" itemprop="description">老杨同志·经球码他</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:ny83427@gmail.com" title="伊妹 → mailto:ny83427@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>伊妹</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/ny83427" title="放码 → https:&#x2F;&#x2F;github.com&#x2F;ny83427" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>放码</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/nathanaelyang/" title="领英 → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;nathanaelyang&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-linkedin"></i>领英</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/ny83427" title="推特 → https:&#x2F;&#x2F;twitter.com&#x2F;ny83427" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>推特</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.oldyoungboys.club/" title="https:&#x2F;&#x2F;www.oldyoungboys.club" rel="noopener" target="_blank">老伙计俱乐部</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.javaneversleep.com/" title="https:&#x2F;&#x2F;www.javaneversleep.com" rel="noopener" target="_blank">Java睡不着</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">老杨</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">76k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:09</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.2
+  </div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e782f1010561fdb" async="async"></script>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      script.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+  <script pjax>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 24088,
+      el    : 'wpac-rating',
+      color : 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://nathanaelyang.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://www.oldyoungboy.com/Reply-On-How-to-Follow-Design-Pattern/";
+    this.page.identifier = "Reply-On-How-to-Follow-Design-Pattern/";
+    this.page.title = "给一位Udemy学员的回复（之一）：Follow Design Pattern的正确姿势";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://nathanaelyang.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+    </div>
+</body>
+</html>
